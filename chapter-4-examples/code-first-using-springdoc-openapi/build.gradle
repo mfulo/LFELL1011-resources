@@ -25,10 +25,16 @@ dependencies {
 
 tasks.named('test') {
 	useJUnitPlatform()
+	
 }
 
 openApi {
 	  apiDocsUrl.set("http://localhost:8080/v3/api-docs")
     outputDir.set(file("$buildDir/openapi"))
 		outputFileName.set("code-first-openapi.yaml")
+}
+tasks {
+  forkedSpringBootRun {
+    doNotTrackState("fuckinshit")
+  }
 }
